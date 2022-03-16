@@ -1,0 +1,5 @@
+.Button {
+    all: unset;
+    cursor: pointer;
+    text-decoration: underline;
+}

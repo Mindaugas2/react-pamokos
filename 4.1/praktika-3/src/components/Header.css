@@ -1,0 +1,10 @@
+.Header-page-title {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(48, 25, 13);
+}
+
+.Header-image {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
