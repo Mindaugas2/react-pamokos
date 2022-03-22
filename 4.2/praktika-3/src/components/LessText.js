@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./LessText.css";
 
-export default function Task(props) {
+export default function LessText(props) {
 
     const [read, setRead] = useState(false);
 
