@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import Home from './components/Home';
-import Praktika5 from './components/Praktika5';
-import Praktika4 from './components/Praktika4';
 import Praktika6 from './components/praktika-6/Praktika6'
+import Praktika5 from './components/praktika-5/Praktika5';
+import Praktika4 from './components/praktika-4/Praktika4';
 
 function App() {
   return (
