@@ -20,7 +20,7 @@ export default function Users() {
             <div className="row">
                 {users.map(user => {
                     return (
-                        <div className="col-lg-4" key={user.id}>
+                        <div className="col-4" key={user.id}>
                             <img src={user.avatar_url} alt="Profile image" className="bd-placeholder-img rounded-circle" width="140" height="140" />
                             <h2>{user.login}</h2>
                             <p><a onClick={() => navigate(user.login)} className="btn btn-secondary">View details &raquo;</a></p>
