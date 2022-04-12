@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 const ControlledInputs = () => {
-  const [student, setStudent] = useState({ firstName: '', lastName: '', birthday: '', city: '', program: '', group: '' });
+  const [student, setStudent] = useState({
+    firstName: '', lastName: '',
+    birthday: '', city: '', program: '', group: ''
+  });
   const [students, setStudents] = useState([]);
 
   const handleChange = (e) => {
@@ -13,17 +16,32 @@ const ControlledInputs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (student.firstName && student.lastName && student.birthday && student.city && student.program && student.group) {
+    if (student.firstName && student.lastName && student.birthday
+      && student.city && student.program && student.group) {
+
       const newStudent = { ...student, id: new Date().getTime().toString() };
       setStudents([...students, newStudent]);
-      setStudent({ firstName: '', lastName: '', birthday: '', city: '', program: '', group: '' });
+      setStudent({
+        firstName: '', lastName: '',
+        birthday: '', city: '', program: '', group: ''
+      });
     }
   };
+
+  const handleRemove = (id) => {
+    const newStudents = students.filter(student => student.id !== id)
+    setStudents(newStudents)
+    alert("The student was removed")
+  }
+
+  const handleEdit = () => {
+    <p>Yo</p>
+  }
 
   return (
     <>
       <article className='form'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='form-control'>
             <label htmlFor='firstName'>First name: </label>
             <input
@@ -84,7 +102,7 @@ const ControlledInputs = () => {
               onChange={handleChange}
             />
           </div>
-          <button type='submit' className='btn' onClick={handleSubmit}>
+          <button type='submit' className='btn'>
             add student
           </button>
         </form>
@@ -92,13 +110,17 @@ const ControlledInputs = () => {
 
       <article>
         {students.map((student) => {
-          const { id, firstName, email, age } = student;
+          const { id, firstName, lastName, birthday, city, program, group } = student;
 
           return (
             <div key={id} className='item'>
-              <h4>{firstName}</h4>
-              <p>{email}</p>
-              <p>{age}</p>
+              <b>{firstName} {lastName}</b>
+              <p>{birthday}</p>
+              <p>{city}</p>
+              <p>{program}</p>
+              <p>{group}</p>
+              <button onClick={() => handleEdit}>Edit</button>
+              <button onClick={() => handleRemove(id)}>Remove</button>
             </div>
           );
         })}
